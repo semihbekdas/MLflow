@@ -1248,13 +1248,6 @@ C: `rm -rf mlruns/<experiment_id>/<run_id>/` veya UI'da "Delete" butonu.
 
 ---
 
-### 🎉 Kapanış:
-
-**Mesaj:** 
-"MLflow ile artık her deneyiniz kayıt altında. Parametre değişikliklerini takip edebilir, modelleri karşılaştırabilir ve production'a kolayca taşıyabilirsiniz. Bu, bilimsel bir disiplin kazandırıyor!"
-
-**Teşekkür:** "Sorularınız için: semih@example.com"
-
 
 ### Ders Sırası Komutlar:
 ```bash
