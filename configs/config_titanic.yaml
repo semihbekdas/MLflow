@@ -1,0 +1,34 @@
+experiment_name: mlflow_egitimi
+tracking_uri: file:./mlruns
+random_state: 42
+
+# Veri kaynağı: 'titanic' seçildiğinde Kaggle Titanic train.csv beklenir
+# Lütfen Kaggle'dan train.csv indirip data/raw/titanic.csv konumuna koyun
+# Alternatif: kendi CSV'nizde target kolonunun adı 'survived' olmalıdır.
+data:
+  source: titanic    # seçenekler: titanic | csv
+  csv_path: data/raw/titanic.csv
+  test_size: 0.2
+  stratify: true
+  processed_dir: data/processed
+
+# Model ve hiperparametreler
+model:
+  name: RandomForestClassifier  # seçenekler: RandomForestClassifier | LogisticRegression | KNeighborsClassifier
+  params:
+    n_estimators: 200
+    max_depth: 10
+    random_state: 42
+
+train:
+  autolog: false
+  run_name: rf_titanic
+  tags:
+    proje: mlops-egitim
+    veri: titanic
+
+evaluate:
+  save_confusion_matrix: true
+  top_n_samples_preview: 5
+
+

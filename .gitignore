@@ -1,0 +1,56 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# MLflow
+mlruns/
+artifacts/
+
+# Data
+data/processed/
+data/raw/*.csv
+data/raw/*.xlsx
+data/raw/*.json
+
+# Jupyter
+.ipynb_checkpoints/
+notebooks/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Pytest
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*~
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride

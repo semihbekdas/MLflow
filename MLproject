@@ -1,0 +1,32 @@
+name: mlflow-egitimi
+
+conda_env: conda.yaml
+
+env_vars:
+  MLFLOW_TRACKING_URI: file:./mlruns
+
+entry_points:
+  prepare_data:
+    parameters:
+      config: {type: string, default: configs/config_titanic.yaml}
+    command: "python -m src.data.make_dataset --config {config}"
+
+  train:
+    parameters:
+      config: {type: string, default: configs/config_titanic.yaml}
+      run_name: {type: string, default: rf_titanic_default}
+      override: {type: string, default: "{}"}
+    command: >
+      python -m src.models.train --config {config} --run-name {run_name} --override '{override}'
+
+  evaluate:
+    parameters: {}
+    command: "python -m src.models.evaluate"
+
+  titanic_full:
+    parameters: {}
+    command: >
+      bash -lc "python -m src.data.make_dataset --config configs/config_titanic.yaml && \
+      python -m src.models.train --config configs/config_titanic.yaml --run-name rf_titanic_default && \
+      python -m src.models.train --config configs/config_titanic.yaml --run-name lr_titanic --override '{\"model.name\":\"LogisticRegression\",\"model.params.max_iter\":2000}' && \
+      python -m src.models.evaluate"
